@@ -8,7 +8,7 @@ const session = require('express-session');
 const app = express();
 app.locals.pretty = true;
 //port number
-const port = 4000;
+const port = 3000;
 // initialize database
 const db = new Database();
 db.initialize();
