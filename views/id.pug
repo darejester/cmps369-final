@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  nav
+    if user 
+        span
+            span Logged in: #{user.firstName} #{user.lastName}  
+            a(href='/logout') Sign out
+    else
+        a(href='/login') Sign in
+    a(href="/") Back to list 
+  
+  h1 Contact Info 
+  h2 #{contact.firstName} #{contact.lastName}
+  hr 
+  
+  p 
+    b Phone number: 
+    span #{contact.phoneNumber}
+    if contact.contactByPhone
+      p
+        i May be contacted by phone or text
+    else
+      p
+        i May NOT be contacted by phone or text
+  hr 
+  p 
+    b Email address: 
+    span #{contact.emailAddress}
+    if contact.contactByEmail
+      p
+        i May be contacted by email
+    else
+      p
+        i May NOT be contacted by email
+  hr 
+  p 
+    b Address: 
+    span #{contact.street}
+    span 
+      span #{contact.city}
+      span , 
+      span #{contact.state}
+      span #{contact.zip} 
+    span #{contact.country}
+    //- p 
+    //-   i May NOT be contacted by mail 
+  hr 
+  p
+    a(href=`/${contact.id}/edit`) Edit contact 
+    br 
+    a(href=`/${contact.id}/delete`) Delete contact 

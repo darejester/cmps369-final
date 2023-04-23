@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  if user 
+    nav
+      span
+          span Logged in: #{user.firstName} #{user.lastName}  
+          a(href='/logout') Sign out
+    h1 Update Contact 
+    .container
+      form(action="/:id", method="post")
+        fieldset
+          legend Basic Info
+          input(name="edit", value=1, type="hidden") 
+          input(name="id", value=id, type="hidden")
+          section 
+            label(for="firstName") First Name: 
+            input(name="firstName", value= contact.firstName)
+          section 
+            label(for="lastName") Last Name: 
+            input(name="lastName", value= contact.lastName)
+          section 
+            label(for="phoneNumber") Phone: 
+            input(type="phoneNumber", name="phoneNumber", , value= contact.phoneNumber)
+          section 
+            label(for="emailAddress") Email: 
+            input(type="emailAddress", name="emailAddress", pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", value= contact.emailAddress)
+        fieldset
+          legend Address 
+          section 
+            label(for="street") Street: 
+            input(name="street", value= contact.street)
+          section 
+            label(for="city") City: 
+            input(name="city", value= contact.city)
+          section 
+            label(for="state") State: 
+            input(name="state", value= contact.state)
+          section 
+            label(for="zip") Zip: 
+            input(name="zip", value= contact.zip)
+          section 
+            label(for="country") Country: 
+            input(name="country", value= contact.country)
+        fieldset
+          legend Contact Preferences 
+          section 
+            input(type="checkbox", name="contactByPhone", checked=contact.contactByPhone)
+            label(for="contactByPhone") Contact by phone
+          section 
+            input(type="checkbox", name="contactByEmail", checked=contact.contactByEmail)
+            label(for="contactByEmail") Contact by email
+        button(type="submit") Save 
+        a(href="/") Cancel
+  else
+      p Not Authorized
+
+  

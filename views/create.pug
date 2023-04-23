@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  nav
+    if user 
+        span
+            span Logged in: #{user.firstName} #{user.lastName}  
+            a(href='/logout') Sign out
+    else
+        a(href='/login') Sign in
+
+  h1 Create Contact 
+  
+  .container
+    form(action="/", method="post")
+      fieldset
+        legend Basic Info
+        input(name="newContactId", value=newContactId, type="hidden") 
+        section 
+          label(for="firstName") First Name: 
+          input(name="firstName", required)
+        section 
+          label(for="lastName") Last Name: 
+          input(name="lastName", required)
+        section 
+          label(for="phoneNumber") Phone: 
+          input(type="phoneNumber", name="phoneNumber", required)
+        section 
+          label(for="emailAddress") Email: 
+          input(type="emailAddress", name="emailAddress", pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", required)
+      fieldset
+        legend Address 
+        section 
+          label(for="street") Street: 
+          input(name="street", required)
+        section 
+          label(for="city") City: 
+          input(name="city", required)
+        section 
+          label(for="state") State: 
+          input(name="state", required)
+        section 
+          label(for="zip") Zip: 
+          input(name="zip", required)
+        section 
+          label(for="country") Country: 
+          input(name="country", required)
+      fieldset
+        legend Contact Preferences 
+        section 
+          input(type="checkbox", name="contactByPhone", required)
+          label(for="contactByPhone") Contact by phone
+        section 
+          input(type="checkbox", name="contactByEmail", required)
+          label(for="contactByEmail") Contact by email
+      button(type="submit") Add 
+      p
+        a(href="/") Cancel

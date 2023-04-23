@@ -1,0 +1,256 @@
+* {
+    font-size: 1.25rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    padding: 0px;
+    padding-top: 50px;
+    margin: 0px;
+    background-color: rgb(150, 150, 150);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    height: 30px;
+    padding: 0.5rem;
+    background-color: #505050;
+    margin: 0px;
+    width: 100%;
+    box-shadow: 0 2px 2px darkgray;
+}
+
+nav a {
+    text-decoration: none;
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 255, 255);
+    margin: 1rem;
+}
+nav span {
+    text-decoration: none;
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 255, 255);
+    margin: 1rem;
+}
+p {
+    text-decoration: none;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+    text-align: center;
+}
+p b{
+    text-decoration: none;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+    text-align: center;
+}
+p span{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+a{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: none;
+    font-size: 150%;
+    color: rgb(255, 153, 0);
+    margin: 2rem auto;
+
+    width:400px;
+    height:100;
+    border-radius:4px;
+    border:10px solid #ccc;
+
+    background-color: #474747;
+    box-shadow: 2px 2px 2px darkgray;
+}
+h2 {
+    text-align: center;
+    text-decoration: none;
+    font-size: 150%;
+    color: rgb(255, 153, 0);
+    margin: 2rem auto;
+
+    /* width:400px; */
+    height:100;
+    border-radius:4px;
+    border:1px solid #ccc;
+
+    background-color: #474747;
+    box-shadow: 2px 2px 2px darkgray;
+}
+table {
+    background-color: #6b6b6b;
+    border:10px solid #8b8b8b;
+}
+table thead{
+    text-decoration: none;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+}
+table tbody td a{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+}
+table tbody{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(202, 202, 202);
+}
+table tbody tr:nth-child(odd) {
+    background-color: #474747;
+  }
+table tbody tr:nth-child(even) {
+background-color: #777777;
+}
+  
+.container {
+display: flex;
+justify-content: center;
+}
+.container a{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+}
+.container button{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    font-size: 100%;
+    color: rgb(161, 161, 161);
+    background-color: #ffae00;
+    border:5px solid #8b8b8b;
+    padding: 15px 32px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+.container input {
+    background-color: #474747;
+    border:2px solid #ccc;
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 153, 0);
+    margin: 1rem auto;
+    text-align: center;
+    display: block;
+}
+.container p {
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 153, 0);
+    margin: 1rem auto;
+    text-align: center;
+}
+form {
+    background-color: #474747;
+    box-shadow: 2px 2px 2px darkgray;
+    border:10px solid #ccc;
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 153, 0);
+    padding: 1rem;
+    margin: 2rem auto;
+}
+form button{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    font-size: 100%;
+    color: rgb(161, 161, 161);
+    background-color: #ffae00;
+    border:5px solid #8b8b8b;
+    padding: 15px 32px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+form a{
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(255, 153, 0);
+    display: block;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+li {
+    padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.25rem;
+    list-style-type: none;
+    font-size: smaller;
+    box-shadow: 0 2px 2px darkgray;
+}
+
+.low {
+    background-color: #009FB7;
+    color: white;
+}
+
+.high {
+    background-color: #FE4A49;
+    color: white;
+}
+
+.correct {
+    background-color: #FED766;
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container>* {
+  flex: 1 0 100%;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0.25rem;
+    }
+
+    .container>* {
+        margin-top: 1.25rem;
+    }
+}

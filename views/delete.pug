@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    
+    if user 
+        nav
+            span
+                span Logged in: #{contact.firstName} #{contact.lastName}  
+                a(href='/logout') Sign out
+        h1 Delete Contact
+        h2 #{user.firstName} #{user.lastName}
+        p Are you sure you want to delete this contact?
+        form(action='/:id' method='post')
+            input(name="delete", value=1, type="hidden")
+            input(name="id", value=id, type="hidden")
+            button(type='submit') Yes
+            a(href="/") Nevermind
+    else
+        p Not Authorized
+    

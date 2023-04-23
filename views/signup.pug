@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1 Sign up
+  .container
+    form(action="/", method="post")
+      input(name="newUserId", value=newUserId, type="hidden") 
+      section
+        label(for="firstName") First Name
+        input(name="firstName", required)
+      section
+        label(for="lastName") Last Name
+        input(name="lastName", required)
+      hr
+      section
+        label(for="username") Username
+        input(name="username", required)
+      section
+        label(for="password") Password
+        input(name="password", type="password", required)
+      section
+        label(for="password2") Confirm Password
+        input(name="password2", type="password", required)
+        hr
+      button(type="submit") Sign up
+      p 
+        a(href="/") Nevermind
+      if(username == 0)
+        section
+          p An account with this username already exists
+      if(password != password2)
+        section
+          p Your passwords do not match    
+      section
+        p Already have an account? 
+          a(href="/login") Sign in here!

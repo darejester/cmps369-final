@@ -1,0 +1,50 @@
+extends layout.pug
+
+block content
+  nav
+    //a(href='/login') Sign in
+    if user 
+        span
+            span Logged in: #{user.firstName} #{user.lastName}  
+            a(href='/logout') Sign out
+    else
+        a(href='/login') Sign in
+    a(href='/create') Create a new contact
+    
+  h1 Contact List
+    
+  .container
+    table
+      thead
+        tr
+          th Name
+          th Phone
+          th Email
+          th Address
+          th Contact
+      tbody
+        each contact in allContacts
+          tr
+            td: a(href=`/${contact.id}`) #{contact.firstName} #{contact.lastName}
+            td #{contact.phoneNumber}
+            td #{contact.emailAddress}
+            td 
+              section
+                | #{contact.street}
+                | <br>
+                span= contact.city
+                | , 
+                span= contact.state
+                | <br>
+                span= contact.zip
+                | <br>
+                span= contact.country
+            td
+              section
+                input#contactByPhone(type='checkbox', disabled, checked = contact.contactByPhone)
+                label(for='phone') Phone
+              section
+                input#contactByEmail(type='checkbox', disabled, checked = contact.contactByEmail)
+                label(for='email') Email
+
+
