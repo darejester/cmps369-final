@@ -82,15 +82,15 @@ class ContactDB {
         [
             { column: 'firstName', value: newContact.firstName },
             { column: 'lastName', value: newContact.lastName },
+            { column: 'address', value: newContact.address },
             { column: 'phoneNumber', value: newContact.phoneNumber },
             { column: 'emailAddress', value: newContact.emailAddress },
-            { column: 'street', value: newContact.street },
-            { column: 'city', value: newContact.city },
-            { column: 'state', value: newContact.state },
-            { column: 'zip', value: newContact.zip },
-            { column: 'country', value: newContact.country },
+            { column: 'title', value: newContact.title },
+            { column: 'contactByMail', value: newContact.contactByMail },
             { column: 'contactByPhone', value: newContact.contactByPhone },
-            { column: 'contactByEmail', value: newContact.contactByEmail }
+            { column: 'contactByEmail', value: newContact.contactByEmail },
+            { column: 'latitude', value: 0},
+            { column: 'longitude', value: 0 }
         ],
         [
             { column: 'id', value: contact.id }

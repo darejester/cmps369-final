@@ -109,7 +109,13 @@ table tbody td a{
     color: rgb(255, 153, 0);
 }
 table tbody{
-    text-decoration: underline;
+    text-shadow: 2px 2px 2px black;
+    font-size: 100%;
+    color: rgb(202, 202, 202);
+}
+table tbody td section{
+    display: flex;
+    text-align: center;
     text-shadow: 2px 2px 2px black;
     font-size: 100%;
     color: rgb(202, 202, 202);
@@ -229,7 +235,19 @@ th {
 tbody tr:nth-child(odd) {
     background-color: aliceblue;
 }
+#map-container {
+    height: calc(100vh - 140px);
 
+    margin-bottom: 2rem;
+  }
+  #map { 
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+  }
+  tr {
+    cursor: pointer;
+  }
 @media screen and (min-width: 768px) {
     .container {
         display: flex;
