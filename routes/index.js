@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   console.log('index post');
 
-  console.log(req.body);
+  // console.log(req.body);
   //console.log(req.body.emailAddress);
   console.log(req.body.delete);
   if(req.body.delete == 1)
@@ -36,6 +36,7 @@ router.post('/', async (req, res) => {
   if(req.body.newContactId && req.body.title)
   {
     console.log("inside new contact if");
+    const newContactId = await req.db.createContact();
     const contact = await req.db.findContact(req.body.newContactId);
     if (!contact) {
       res.writeHead(404);

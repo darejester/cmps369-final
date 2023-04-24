@@ -76,13 +76,13 @@ class ContactDB {
         console.log("getAllContacts");
         const contacts = await this.db.read('Contact',[]);
         //delete empty contacts
-        // for(const contact of contacts)
-        // {
-        //     if(contact.title == "")
-        //     {
-        //         this.deleteContact(contact.id);
-        //     }
-        // }
+        for(const contact of contacts)
+        {
+            if(contact.title == "")
+            {
+                this.deleteContact(contact.id);
+            }
+        }
         // for (var i = 0; i < markers.length; i++) {
         //     map.removeLayer(markers[i]);
         // }

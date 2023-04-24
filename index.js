@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 //tell express where pug templates are
 app.set('view engine', 'pug');
 
-
+app.use(express.static('public'))
 // middleware
 app.use((req, res, next) => {
     console.log("add database to request");
@@ -48,16 +48,17 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use(express.static('public'))
+
 
 app.use('/create', require('./routes/create'));
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/index'));
 app.use('/signup', require('./routes/signup'));
+app.use('/', require('./routes/index'));
 app.use('/:id', require('./routes/index'));
 app.use('/:id/edit', require('./routes/index'));
 app.use('/:id/delete', require('./routes/index'));
-app.use('/', require('./routes/index'));
+
 
 // start server
 app.listen(port, () => {
