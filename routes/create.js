@@ -4,9 +4,10 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     // display create contact form
     // post to /create
+    console.log("create get");
     const newContactId = await req.db.createContact();
-    //console.log(newContactId)
-    res.render('create',{newContactId: newContactId});
+    console.log(newContactId)
+     res.render('create',{newContactId: newContactId});
   });
   
   // app.post('/', requireLogin, (req, res) => {

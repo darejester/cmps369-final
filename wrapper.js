@@ -76,13 +76,16 @@ class ContactDB {
         console.log("getAllContacts");
         const contacts = await this.db.read('Contact',[]);
         //delete empty contacts
-        for(const contact of contacts)
-        {
-            if(contact.title == "")
-            {
-                this.deleteContact(contact.id);
-            }
-        }
+        // for(const contact of contacts)
+        // {
+        //     if(contact.title == "")
+        //     {
+        //         this.deleteContact(contact.id);
+        //     }
+        // }
+        // for (var i = 0; i < markers.length; i++) {
+        //     map.removeLayer(markers[i]);
+        // }
         
         //console.log(contacts);
         return contacts;
@@ -90,11 +93,8 @@ class ContactDB {
 
      async recordContact(contact,newContact) {
         console.log("Record Contact");
-        if(newContact.title == "")
-        {
-
-        }
         console.log(newContact);
+        // marker = L.marker([newContact.lat, newContact.lng]).addTo(map).bindPopup(`<b>${newContact.lastName}</b><br/>${newContact.address}`);
         //get address of newContact
         const address = await geocoder.geocode(newContact.address);
         await this.db.update('Contact',
@@ -120,8 +120,11 @@ class ContactDB {
     async findContact(id) {
         const contact = await this.db.read('Contact', [{ column: 'id', value: id }]);
         console.log("findContact");
-        //console.log(contact[0]);
-        if (contact.length > 0) return contact[0];
+        console.log(contact[0]);
+        if (contact.length > 0) 
+        {
+            return contact[0];
+        }
         else {
             return undefined;
         }
@@ -152,7 +155,10 @@ class ContactDB {
         const user = await this.db.read('Users', [{ column: 'id', value: id }]);
         console.log("findUser");
         //console.log(contact[0]);
-        if (user.length > 0) return user[0];
+        if (user.length > 0) 
+        {
+            return user[0];
+        }
         else {
             return undefined;
         }
@@ -179,7 +185,10 @@ class ContactDB {
     async findUserByUsername(username) {
         const user = await this.db.read('Users', [{ column: 'username', value: username }]);
         //console.log(user.length);
-        if (user.length > 0) return user[0];
+        if (user.length > 0) 
+        {
+            return user[0];
+        }
         else {
             return undefined;
         }
@@ -195,10 +204,15 @@ class ContactDB {
 
     async deleteContact(id) {
         const user = await this.db.delete('Contact', [{ column: 'id', value: id }]);
+
         console.log("deleteContact");
         //console.log(contact[0]);
-        if (user.length > 0) return user[0];
-        else {
+        if (user.length > 0) 
+        {
+            return user[0];
+        }
+        else 
+        {
             return undefined;
         }
     }
