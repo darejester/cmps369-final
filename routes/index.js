@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 
-const geo = require('node-geocoder');
-const geocoder = geo({ provider: 'openstreetmap' });
 
 router.get('/', async (req, res) => {
   console.log('index get');
@@ -35,7 +33,7 @@ router.post('/', async (req, res) => {
   }
 
   //if there is a new contact Id
-  if(req.body.newContactId)
+  if(req.body.newContactId && req.body.title)
   {
     console.log("inside if");
     const contact = await req.db.findContact(req.body.newContactId);
@@ -86,13 +84,9 @@ router.post('/', async (req, res) => {
     console.log("test");
     console.log(id);
     req.session.user = id;
-    //res.render('index',{allContacts: allContacts});
     res.redirect('/');
     return;
     
-    //console.log(req.db.getAllUsers());
- 
-    //await req.db.recordUser(user,req.body);
     
   }
 

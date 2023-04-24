@@ -6,6 +6,8 @@ const Database = require('dbcmps369');
 const geo = require('node-geocoder');
 const geocoder = geo({ provider: 'openstreetmap' });
 
+let markers = [];
+
 class ContactDB {
     //initialize database
     constructor() {
@@ -73,6 +75,14 @@ class ContactDB {
     async getAllContacts() {
         console.log("getAllContacts");
         const contacts = await this.db.read('Contact',[]);
+        //delete empty contacts
+        for(const contact of contacts)
+        {
+            if(contact.title == "")
+            {
+                this.deleteContact(contact.id);
+            }
+        }
         
         //console.log(contacts);
         return contacts;
@@ -80,6 +90,10 @@ class ContactDB {
 
      async recordContact(contact,newContact) {
         console.log("Record Contact");
+        if(newContact.title == "")
+        {
+
+        }
         console.log(newContact);
         //get address of newContact
         const address = await geocoder.geocode(newContact.address);
@@ -94,8 +108,8 @@ class ContactDB {
             { column: 'contactByMail', value: newContact.contactByMail },
             { column: 'contactByPhone', value: newContact.contactByPhone },
             { column: 'contactByEmail', value: newContact.contactByEmail },
-            { column: 'latitude', value: 0},
-            { column: 'longitude', value: 0 }
+            { column: 'latitude', value: address[0].latitude},
+            { column: 'longitude', value: address[0].longitude }
         ],
         [
             { column: 'id', value: contact.id }
