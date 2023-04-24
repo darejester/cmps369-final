@@ -7,6 +7,7 @@ const geo = require('node-geocoder');
 const geocoder = geo({ provider: 'openstreetmap' });
 
 let markers = [];
+// const L = require('leaflet');
 
 class ContactDB {
     //initialize database
@@ -83,9 +84,18 @@ class ContactDB {
                 this.deleteContact(contact.id);
             }
         }
-        // for (var i = 0; i < markers.length; i++) {
-        //     map.removeLayer(markers[i]);
+        //delete all markers
+        for (var i = 0; i < markers.length; i++) {
+            map.removeLayer(markers[i]);
+        }
+        //add updated markers
+        // for(const contact of contacts)
+        // {
+        //     marker = L.marker([newContact.latitude, newContact.longitude]).addTo(map).bindPopup(`<b>${newContact.lastName}</b><br/>${newContact.address}`);
+        //     markers.push(marker);
+        //     console.log(marker);
         // }
+        
         
         //console.log(contacts);
         return contacts;
@@ -94,7 +104,7 @@ class ContactDB {
      async recordContact(contact,newContact) {
         console.log("Record Contact");
         console.log(newContact);
-        // marker = L.marker([newContact.lat, newContact.lng]).addTo(map).bindPopup(`<b>${newContact.lastName}</b><br/>${newContact.address}`);
+       
         //get address of newContact
         const address = await geocoder.geocode(newContact.address);
         await this.db.update('Contact',

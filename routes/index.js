@@ -9,7 +9,10 @@ router.get('/', async (req, res) => {
   const allContacts = await req.db.getAllContacts();
   console.log(allContacts.length);
   
-  res.render('index',{allContacts: allContacts});
+  
+  // res.render('index',{allContacts: allContacts});
+  // res.json({allContacts});
+  res.render('index',{allContacts});
 });
 
 router.post('/', async (req, res) => {

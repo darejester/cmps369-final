@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+  
   nav
     //a(href='/login') Sign in
     if user 
@@ -24,7 +25,7 @@ block content
           th Contact
       tbody
         each contact in allContacts
-          tr
+          tr(id=`${contact.id}`)
             td: a(href=`/${contact.id}`) #{contact.firstName} #{contact.lastName}
             td #{contact.phoneNumber}
             td #{contact.emailAddress}
@@ -49,9 +50,23 @@ block content
   script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
   script(src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js")
   script.
+    let markers = [];
+    const allContacts = !{JSON.stringify(allContacts)};
     const map = L.map('map').setView([41.08224455, -74.1738235180645], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    for (const contact of allContacts) {
+      marker = L.marker([contact.latitude, contact.longitude]).addTo(map).bindPopup(`<b>${contact.title} ${contact.firstName} ${contact.lastName}</b><br/>${contact.address}`);
+      markers.push(marker);
+      console.log(marker);
+
+      const row = document.querySelector(`[id='${contact.id}']`);
+      row.addEventListener('click', () => {
+        // set view of map to marker's position
+        map.flyTo([contact.latitude, contact.longitude]);
+      });
+    }
 
