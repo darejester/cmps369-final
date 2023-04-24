@@ -3,6 +3,9 @@
 require('dotenv').config();
 const Database = require('dbcmps369');
 
+const geo = require('node-geocoder');
+const geocoder = geo({ provider: 'openstreetmap' });
+
 class ContactDB {
     //initialize database
     constructor() {
@@ -78,11 +81,13 @@ class ContactDB {
      async recordContact(contact,newContact) {
         console.log("Record Contact");
         console.log(newContact);
+        //get address of newContact
+        const address = await geocoder.geocode(newContact.address);
         await this.db.update('Contact',
         [
             { column: 'firstName', value: newContact.firstName },
             { column: 'lastName', value: newContact.lastName },
-            { column: 'address', value: newContact.address },
+            { column: 'address', value: address[0].formattedAddress },
             { column: 'phoneNumber', value: newContact.phoneNumber },
             { column: 'emailAddress', value: newContact.emailAddress },
             { column: 'title', value: newContact.title },

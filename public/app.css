@@ -120,6 +120,9 @@ table tbody td section{
     font-size: 100%;
     color: rgb(202, 202, 202);
 }
+table tbody td {
+    max-width: 200px;
+}
 table tbody tr:nth-child(odd) {
     background-color: #474747;
   }

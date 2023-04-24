@@ -127,10 +127,6 @@ router.post('/', async (req, res) => {
     return;
   }
 
-  // req.session.user = undefined;
-  // //console.log(allContacts);
-
-  // res.render('index',{allContacts: allContacts});
 });
 
 router.get('/logout', async (req, res) => {
