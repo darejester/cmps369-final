@@ -232,7 +232,7 @@ table {
 }
 
 th {
-    text-align: left;
+    text-align: center;
 }
 
 tbody tr:nth-child(odd) {
