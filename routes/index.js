@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 
+const geo = require('node-geocoder');
+const geocoder = geo({ provider: 'openstreetmap' });
+
 router.get('/', async (req, res) => {
   console.log('index get');
   // display all contacts in a table
