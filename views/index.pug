@@ -28,17 +28,7 @@ block content
             td: a(href=`/${contact.id}`) #{contact.firstName} #{contact.lastName}
             td #{contact.phoneNumber}
             td #{contact.emailAddress}
-            td 
-              section
-                | #{contact.street}
-                | <br>
-                span= contact.city
-                | , 
-                span= contact.state
-                | <br>
-                span= contact.zip
-                | <br>
-                span= contact.country
+            td #{contact.address}
             td
               section
                 input#contactByPhone(type='checkbox', disabled, checked = contact.contactByPhone)

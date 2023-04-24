@@ -54,15 +54,15 @@ class ContactDB {
             //id is = to Users.length
             { column: 'firstName', value: "" },
             { column: 'lastName', value: "" },
+            { column: 'address', value: "" },
             { column: 'phoneNumber',value: ""  },
             { column: 'emailAddress', value: ""  },
-            { column: 'street', value: ""  },
-            { column: 'city', value: ""  },
-            { column: 'state', value: ""  },
-            { column: 'zip',value: ""  },
-            { column: 'country', value: ""  },
+            { column: 'title', value: ""  },
+            { column: 'contactByMail', value: 0 },
             { column: 'contactByPhone', value: 0 },
-            { column: 'contactByEmail', value: 0 }
+            { column: 'contactByEmail', value: 0 },
+            { column: 'latitude', value: 0 },
+            { column: 'longitude', value: 0 }
         ])
         return id;
     }

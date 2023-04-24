@@ -15,7 +15,10 @@ block content
     form(action="/", method="post")
       fieldset
         legend Basic Info
-        input(name="newContactId", value=newContactId, type="hidden") 
+        input(name="newContactId", value=newContactId, type="hidden")
+        section 
+          label(for="title") Title: 
+          input(name="title", required) 
         section 
           label(for="firstName") First Name: 
           input(name="firstName", required)
@@ -31,28 +34,20 @@ block content
       fieldset
         legend Address 
         section 
-          label(for="street") Street: 
-          input(name="street", required)
-        section 
-          label(for="city") City: 
-          input(name="city", required)
-        section 
-          label(for="state") State: 
-          input(name="state", required)
-        section 
-          label(for="zip") Zip: 
-          input(name="zip", required)
-        section 
-          label(for="country") Country: 
-          input(name="country", required)
+          label(for="address") Full Address: 
+          input(name="address", required)
       fieldset
         legend Contact Preferences 
         section 
-          input(type="checkbox", name="contactByPhone", required)
-          label(for="contactByPhone") Contact by phone
+          label(for="contactByMail") Contact by phone
+          input(type="checkbox", name="contactByMail", required) 
         section 
-          input(type="checkbox", name="contactByEmail", required)
+          label(for="contactByPhone") Contact by email
+          input(type="checkbox", name="contactByPhone", required)
+        section 
           label(for="contactByEmail") Contact by email
+          input(type="checkbox", name="contactByEmail", required)
+          
       button(type="submit") Add 
       p
         a(href="/") Cancel
