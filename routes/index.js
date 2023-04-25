@@ -129,8 +129,9 @@ router.post('/', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
   req.session.user = undefined;
+  console.log("logout get:");
   res.redirect('/');
-})
+});
 
 router.get('/:id(\\d+)', async (req, res) => {
   console.log("index id get");

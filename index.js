@@ -49,12 +49,12 @@ app.use((req, res, next) => {
 })
 
 
-
+app.use('/', require('./routes/index'));
 app.use('/create', require('./routes/create'));
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/index'));
 app.use('/signup', require('./routes/signup'));
-app.use('/', require('./routes/index'));
+
 app.use('/:id', require('./routes/index'));
 app.use('/:id/edit', require('./routes/index'));
 app.use('/:id/delete', require('./routes/index'));
