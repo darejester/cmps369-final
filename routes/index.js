@@ -110,7 +110,8 @@ router.post('/', async (req, res) => {
     {
       req.session.user = user;
       console.log(user.firstName);
-      res.render('index',{allContacts: allContacts});
+      // res.render('index',{allContacts: allContacts});
+      res.redirect('/');
       return;
     }
     else
